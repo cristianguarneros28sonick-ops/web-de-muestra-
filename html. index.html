@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taquería Ramón del Planeta</title>
+  <meta name="description" content="Menú de muestra de Taquería Ramón del Planeta.">
+  <style>
+    :root {
+      --fondo: #17100d;
+      --panel: #241914;
+      --texto: #fff8ef;
+      --suave: #d1b9a6;
+      --naranja: #ff9d38;
+      --rojo: #e95635;
+      --borde: #493025;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(23, 16, 13, .96);
+      border-bottom: 1px solid var(--borde);
+    }
+
+    nav {
+      width: min(1100px, calc(100% - 36px));
+      margin: auto;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .marca {
+      color: var(--naranja);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .links {
+      display: flex;
+      gap: 22px;
+      color: var(--suave);
+      font-size: 14px;
+    }
+
+    .hero {
+      width: min(1100px, calc(100% - 36px));
+      margin: auto;
+      padding: 80px 0 65px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .etiqueta {
+      color: var(--naranja);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: .98;
+    }
+
+    h1 span { color: var(--naranja); }
+
+    p {
+      color: var(--suave);
+      line-height: 1.6;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: var(--naranja);
+      color: #23130a;
+      font-weight: 800;
+    }
+
+    .ilustracion {
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--borde);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 157, 56, .30), transparent 45%),
+        linear-gradient(145deg, #392219, #20130f);
+      font-size: clamp(100px, 18vw, 180px);
+    }
+
+    section {
+      width: min(1100px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 48px 0;
+    }
+
+    .titulo-seccion {
+      margin: 0 0 8px;
+      font-size: clamp(30px, 5vw, 44px);
+    }
+
+    .rejilla {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .platillo {
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      background: var(--panel);
+    }
+
+    .foto-demo {
+      min-height: 150px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #4a2818, #241710);
+      font-size: 76px;
+    }
+
+    .info-platillo { padding: 18px; }
+
+    .fila {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .fila h3 { margin: 0; }
+
+    .precio {
+      color: var(--naranja);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .aviso {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border: 1px solid #71502b;
+      border-radius: 12px;
+      background: #2b2014;
+      color: #ffe2b8;
+      font-size: 13px;
+    }
+
+    .ubicacion {
+      padding: 22px;
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      background: var(--panel);
+    }
+
+    footer {
+      padding: 28px 18px;
+      border-top: 1px solid var(--borde);
+      color: var(--suave);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .links { gap: 12px; font-size: 12px; }
+      .hero { grid-template-columns: 1fr; padding-top: 54px; }
+      .ilustracion { min-height: 220px; }
+      .rejilla { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a class="marca" href="#inicio">RAMÓN DEL PLANETA</a>
+      <div class="links">
+        <a href="#menu">Menú</a>
+        <a href="#ubicacion">Ubicación</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <div class="etiqueta">Antojitos para compartir</div>
+        <h1>Tacos con sabor <span>de otro planeta.</span></h1>
+        <p>
+          Bienvenido a Taquería Ramón del Planeta.
+          Explora el menú de muestra y encuentra tu próximo antojo.
+        </p>
+        <a class="boton" href="#menu">Ver menú</a>
+      </div>
+
+      <div class="ilustracion" role="img" aria-label="Ilustración de tacos">
+        🌮
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="etiqueta">Nuestro menú</div>
+      <h2 class="titulo-seccion">Favoritos de la casa</h2>
+      <p>Platillos y precios de ejemplo; cámbialos por los datos reales del negocio.</p>
+
+      <div class="rejilla">
+        <article class="platillo">
+          <div class="foto-demo" role="img" aria-label="Ilustración de taco al pastor">🌮</div>
+          <div class="info-platillo">
+            <div class="fila">
+              <h3>Taco al pastor</h3>
+              <span class="precio">$25</span>
+            </div>
+            <p>Tortilla, pastor, piña, cilantro y cebolla.</p>
+          </div>
+        </article>
+
+        <article class="platillo">
+          <div class="foto-demo" role="img" aria-label="Ilustración de taco de bistec">🌮</div>
+          <div class="info-platillo">
+            <div class="fila">
+              <h3>Taco de bistec</h3>
+              <span class="precio">$29</span>
+            </div>
+            <p>Bistec asado con cilantro, cebolla y salsa.</p>
+          </div>
+        </article>
+
+        <article class="platillo">
+          <div class="foto-demo" role="img" aria-label="Ilustración de quesadilla">🫓</div>
+          <div class="info-platillo">
+            <div class="fila">
+              <h3>Quesadilla</h3>
+              <span class="precio">$55</span>
+            </div>
+            <p>Tortilla dorada con queso. Agrega guisado al gusto.</p>
+          </div>
+        </article>
+
+        <article class="platillo">
+          <div class="foto-demo" role="img" aria-label="Ilustración de gringa">🌯</div>
+          <div class="info-platillo">
+            <div class="fila">
+              <h3>Gringa</h3>
+              <span class="precio">$75</span>
+            </div>
+            <p>Pastor, queso y tortilla de harina.</p>
+          </div>
+        </article>
+
+        <article class="platillo">
+          <div class="foto-demo" role="img" aria-label="Ilustración de agua fresca">🥤</div>
+          <div class="info-platillo">
+            <div class="fila">
+              <h3>Agua fresca</h3>
+              <span class="precio">$25</span>
+            </div>
+            <p>Vaso grande. Sabores disponibles según el día.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="aviso">
+        DEMO: precios, platillos e ilustraciones son de muestra. Confirma la información
+        con el negocio antes de publicar la página.
+      </div>
+    </section>
+
+    <section id
+    <!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Taquería Ramón del Planeta</title>
+  <meta name="description" content="Tacos, aguas frescas y ofertas. Página de muestra.">
+
+  <style>
+    :root {
+      --fondo: #160f0b;
+      --panel: #241812;
+      --borde: #493025;
+      --texto: #fff8ef;
+      --suave: #d2b9a4;
+      --naranja: #ffad42;
+      --rojo: #e85b37;
+      --verde: #a8c96e;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      border-bottom: 1px solid var(--borde);
+      background: rgba(22, 15, 11, .96);
+    }
+
+    nav {
+      width: min(1120px, calc(100% - 36px));
+      min-height: 68px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .marca {
+      color: var(--naranja);
+      font-weight: 900;
+      letter-spacing: .07em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--suave);
+      font-size: 14px;
+    }
+
+    .hero {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+      padding: 70px 0 48px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .etiqueta {
+      color: var(--naranja);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 12px 0;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: .98;
+    }
+
+    h1 span { color: var(--naranja); }
+
+    p {
+      color: var(--suave);
+      line-height: 1.6;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: var(--naranja);
+      color: #241207;
+      font-weight: 800;
+    }
+
+    .hero-visual {
+      min-height: 290px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--borde);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 32% 25%, rgba(255, 173, 66, .32), transparent 44%),
+        linear-gradient(145deg, #462719, #21140e);
+      font-size: clamp(100px, 17vw, 165px);
+    }
+
+    section {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+      padding: 38px 0;
+      scroll-margin-top: 85px;
+    }
+
+    .titulo-seccion {
+      margin: 6px 0;
+      font-size: clamp(30px, 5vw, 42px);
+    }
+
+    .rejilla {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .producto {
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      background: var(--panel);
+    }
+
+    .producto-visual {
+      min-height: 145px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(255, 173, 66, .18), transparent 55%),
+        linear-gradient(135deg, #432719, #21140e);
+      font-size: 72px;
+    }
+
+    .producto-info { padding: 16px; }
+
+    .producto-fila {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .producto h3 { margin: 0; font-size: 18px; }
+
+    .precio {
+      color: var(--naranja);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .producto p { margin-bottom: 0; font-size: 14px; }
+
+    .oferta {
+      padding: 24px;
+      border: 1px solid #815026;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(255, 173, 66, .2), transparent 36%),
+        linear-gradient(135deg, #382016, #21130e);
+    }
+
+    .sello {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--rojo);
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+
+    .oferta h3 {
+      margin: 12px 0 4px;
+      font-size: clamp(25px, 4vw, 36px);
+    }
+
+    .datos {
+      padding: 22px;
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      background: var(--panel);
+    }
+
+    .aviso {
+      margin-top: 22px;
+      padding: 13px 15px;
+      border: 1px solid #73552f;
+      border-radius: 12px;
+      background: #2b2115;
+      color: #ffe2b8;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 25px 18px;
+      border-top: 1px solid var(--borde);
+      color: var(--suave);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; padding-top: 48px; }
+      .hero-visual { min-height: 220px; }
+      .rejilla { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links { gap: 10px; font-size: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .rejilla { grid-template-columns: 1fr; }
+      .marca { font-size: 14px; }
+      .nav-links { gap: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a class="marca" href="#inicio">RAMÓN DEL PLANETA</a>
+      <div class="nav-links">
+        <a href="#tacos">Tacos</a>
+        <a href="#aguas">Aguas</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#ubicacion">Ubicación</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <div class="etiqueta">Taquería de muestra</div>
+        <h1>Sabor que viene <span>de otro planeta.</span></h1>
+        <p>Tacos, aguas frescas y antojos para compartir.</p>
+        <a class="boton" href="#tacos">Explorar el menú</a>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Ilustración de un taco">🌮</div>
+    </section>
+
+    <section id="oferta">
+      <div class="oferta">
+        <span class="sello">OFERTA DEL DÍA · DEMO</span>
+        <h3>Martes de pastor</h3>
+        <p>3 tacos al pastor por $65. Precio y promoción ficticios; confirma las condiciones con el negocio.</p>
+        <a class="boton" href="#ubicacion">Ver ubicación</a>
+      </div>
+    </section>
+
+    <section id="tacos">
+      <div class="etiqueta">Del trompo y el comal</div>
+      <h2 class="titulo-seccion">Tacos</h2>
+      <p>Seis opciones de ejemplo. Cambia nombres, ingredientes y precios por los reales.</p>
+
+      <div class="rejilla">
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🌮</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>Al pastor</h3><span class="precio">$25</span></div>
+            <p>Pastor, piña, cilantro y cebolla.</p>
+          </div>
+        </article>
+
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🌮</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>De bistec</h3><span class="precio">$29</span></div>
+            <p>Bistec asado con salsa de la casa.</p>
+          </div>
+        </article>
+
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🌮</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>De pollo</h3><span class="precio">$25</span></div>
+            <p>Pollo a la plancha, cilantro y cebolla.</p>
+          </div>
+        </article>
+
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🌮</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>De suadero</h3><span class="precio">$28</span></div>
+            <p>Suadero doradito con salsa verde.</p>
+          </div>
+        </article>
+
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🌮</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>De carnitas</h3><span class="precio">$27</span></div>
+            <p>Carnitas, limón y salsa al gusto.</p>
+          </div>
+        </article>
+
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🌮</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>Campechano</h3><span class="precio">$32</span></div>
+            <p>Combinación de bistec y chorizo.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="aguas">
+      <div class="etiqueta">Frescas del día</div>
+      <h2 class="titulo-seccion">Aguas</h2>
+      <p>Sabores y precios de muestra.</p>
+
+      <div class="rejilla">
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">💧</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>Jamaica</h3><span class="precio">$25</span></div>
+            <p>Vaso grande.</p>
+          </div>
+        </article>
+
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🥛</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>Horchata</h3><span class="precio">$25</span></div>
+            <p>Vaso grande.</p>
+          </div>
+        </article>
+
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🍋</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>Limón con chía</h3><span class="precio">$25</span></div>
+            <p>Vaso grande.</p>
+          </div>
+        </article>
+
+        <article class="producto">
+          <div class="producto-visual" aria-hidden="true">🥭</div>
+          <div class="producto-info">
+            <div class="producto-fila"><h3>Tamarindo</h3><span class="precio">$25</span></div>
+            <p>Vaso grande.</p>
+          </div>
+        </article>
+      </div>
+    </section>S
+
+    <section id="ubicacion">
+      <div class="etiqueta">Visítanos</div>
+      <h2 class="titulo-seccion">Ubicación y horario</h2>
+      <div class="datos">
+        <h3>Dirección de ejemplo</h3>
+        <p>Calle del Comal 123, Colonia Centro, Ciudad de México.</p>
+        <p><strong>Horario de muestra:</strong> lunes a domingo, 1:00 p. m. a 10:00 p. m.</p>
+        <p>Contacto: agrega aquí el teléfono o WhatsApp autorizado del negocio.</p>
+      </div>
+
+      <div class="aviso">
+        DEMO: dirección, horarios, platillos, precios y oferta son ficticios.
+        Sustitúyelos y confirma la información antes de publicar.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Página de demostración. No procesa pedidos, pagos ni datos personales.
+  </footer>
+</body>
+</html>
